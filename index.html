@@ -7,42 +7,75 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Link CSS Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Link de font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <title>Crypto Dashboard</title>
 </head>
 <body>
-    <header class="bg-dark text-white py-3 mb-4 shadow-sm">
-        <div class="container">
-            <h1 class="h3 m-0 text-center">Crypto Dashboard</h1>
-        </div>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3 shadow-sm">
+    <div class="container">
+        <h1 class="h4 text-center mb-0">Crypto Dashboard</h1>
+    </div>
     </header>
 
-    <main class="container">
+    <!-- Main -->
+    <main class="container py-4">
 
-    <div class="row align-items-center mb-3">
-        <div class="col-md-6">
-        <input name="buscador" id="buscador" type="text" class="form-control" placeholder="Buscar cripto por nombre...">
+    <!-- Filtros -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-2">
+            <div class="form-group">
+                <label for="buscador" class="font-weight-bold">Buscar criptomoneda</label>
+                <div class="input-group">
+                    <input type="text" id="buscador" class="form-control" placeholder="Ej: Bitcoin, ETH, etc.">
+                <div class="input-group-append">
+                    <button id="limpiarBuscador" class="btn btn-outline-secondary" type="button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-        <select id="filtroRango" class="form-control">
-            <option value="todos">Todos</option>
-            <option value="menor500">Menos de $500</option>
-            <option value="500-1000">Entre $500 y $1000</option>
-            <option value="mayor1000">Más de $1000</option>
-        </select>
+
         </div>
-        <div class="col-md-2 text-right">
-        <button id="buscadorRefrescar" class="btn btn-outline-primary btn-block">Refrescar</button>
+        <div class="col-md-4 mb-2">
+            <div class="form-group">
+                <label for="buscador" class="font-weight-bold">Filtrar por rango de precio</label>
+                <div class="input-group">
+                    <select id="filtroRango" class="form-control">
+                        <option value="todos">Todos</option>
+                        <option value="menor500">Menos de $500</option>
+                        <option value="500-1000">Entre $500 y $1000</option>
+                        <option value="mayor1000">Más de $1000</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button id="limpiarRango" class="btn btn-outline-secondary" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+               
+                
+            </div>
         </div>
+
+       <div class="col-12 text-center mt-2">
+    <div class="col-12 text-center mt-2">
+        <button id="buscadorRefrescar" class="btn btn-primary d-inline-flex align-items-center justify-content-center">
+            <span>Refrescar</span>
+            <i class="fas fa-sync-alt ml-2" style="font-size: 0.9em; line-height: 1;"></i>
+        </button>
     </div>
 
-    <nav>
-  <ul class="pagination justify-content-center" id="paginador"><!-- Se inyectan botones mediante js --></ul>
-</nav>
 
+</div>
+    </div>
 
-    <div class="table-responsive shadow-sm rounded overflow-hidden">
-        <table class="table text-center mb-0">
-        <thead class="bg-light text-dark">
+    <!-- Tabla de resultados -->
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover text-center mb-0">
+        <thead class="thead-dark">
             <tr>
             <th>ID</th>
             <th>Símbolo</th>
@@ -56,11 +89,20 @@
         </table>
     </div>
 
+    <!-- Paginador -->
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center flex-wrap" id="paginador">
+        <!-- Botones generados con JS -->
+        </ul>
+    </nav>
+
     </main>
 
-    <footer class="bg-light text-center py-3 mt-5">
-        <small>&copy; 2025 Crypto Dashboard</small>
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 mt-5 border-top">
+    <small>&copy; 2025 Crypto Dashboard</small>
     </footer>
+
 
 
 
